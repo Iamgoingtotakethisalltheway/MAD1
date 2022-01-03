@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title> Test </title>
+		<meta name="description" content="we are learning CSS"/>
+		
+		<!-- 
+		We learn about styles in this sc using css selectors like: 
+		tag, class, id, 
+		relationship, 
+		pseudoclass, 
+		pseudoelement, 
+		attribute 
+		-->
+		
+		<style type="text/css">
+		
+		
+		/* Tag-based styling */
+			
+			/* p {
+				font-size: 20px; 
+				font-family: courier;
+			}*/
+			
+			
+			
+			
+		/* Class-based styling: use '.' prefix before class name */
+			
+			/* .name_para {
+				font-size: 20px; 
+				font-family: courier;
+			}
+			.main_body {
+				font-size: 20px; 
+				font-family: courier;
+			}*/
+			
+			
+			
+			
+		/* ID-based styling: use '#' prefix before ID_name */
+			
+			/* #personal {
+				font-size: 20px;
+				font-family: courier;
+				color: blue;
+			}*/
+			
+			
+			
+			
+		/* Relationship-based styling.
+				Two types of relationships:
+					Descendent
+					Children */
+					
+			/* To style descendents, use parent name followed by descendent name/type.*/
+			/* form input {
+				background-color: yellow;
+			}*/
+			
+			/* To style children, use parent name > childname */
+			/*form > input {
+				background-color: yellow;
+			}*/
+			
+			
+			
+			
+		/* Pseudoclass-based syling: state and structural.
+			Note: ':' indicates the pseudoclass */
+			
+			/* State pseudoclass based styling.
+			Note: we can combine CSS selectors */
+			/*form > input:hover {
+				background-color: yellow;
+			}*/	
+				
+			/* Structural pseudoclass based styling.
+			Note: This does not work on this html because there is no table.
+			See style.css and jnanapith_sc2.2.html to understand this. */
+			/*tr:nth-child(even){
+				background-color:lightgray;
+			}*/
+			
+			
+			
+			
+		/* Pseudoelement based styling 
+			Note: '::' indicates the pseudoclass */
+			
+			/*form p::first-letter {
+				color: red;
+				font-size: 20px;
+			}*/
+			
+			
+			
+		/* Attibute based styling.
+			We can style based on specific attribute:value pair */
+			/*input[x="y"] {
+				background-color: orange;
+			}
+			input[x="z"] {
+				background-color: white;
+			}
+			input[x="w"] {
+				background-color: green;
+			}*/
+			
+		</style>
+		
+	</head>
+	<body class="main_body">
+		<form>
+			<p class="name_para"> Enter your name </p>
+			<input type="text" x="y"/>
+			<div id="personal">
+				<p> Enter your age </p>
+				<input type="text" x="z"/>
+			</div>
+			<div id="official">
+				<p> Enter your roll number </p>
+				<input type="text" x="w"/>
+			</div>
+		</form>
+	</body>
+</html>
