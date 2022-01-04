@@ -7,7 +7,7 @@
     Ans: c
 
 Representing quotation marks and other entities:  
-See [**Table**](/Notes%20and%20solutions/GA%20and%20PA%20solutions/resources/html_entities.html)  
+See [**Table**](/Notes%20and%20solutions/GA%20and%20PA%20solutions/resources/html_entities.md)  
 Source: [**w3schools**](https://www.w3schools.com/html/html_entities.asp)
 
 <br>
