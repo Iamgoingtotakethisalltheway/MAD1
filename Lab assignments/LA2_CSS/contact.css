@@ -1,0 +1,23 @@
+body {
+	background-color: #ffffff;
+}
+
+div {
+	margin: 20px;
+}
+
+a {
+	color: #ff0000;
+	text-decoration: None;
+}
+
+.footer {
+	position: fixed;
+	bottom: 0px;
+	text-align: center;
+	width: 100%;
+}
+
+span {
+	color: #0000ff;
+}

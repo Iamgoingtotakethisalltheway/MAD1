@@ -4,7 +4,7 @@
 
 ## ID: 21f1006171  
 
-### *About me: Footballer, mender, teacher, researcher, coder and data enthusiast.*  
+### *About me: Learner, teacher, researcher, mender, footballer, coder and data enthusiast.*  
   
 -------------------------------------------
 

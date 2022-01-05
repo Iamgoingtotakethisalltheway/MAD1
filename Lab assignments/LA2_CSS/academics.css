@@ -1,0 +1,41 @@
+body {
+	background-color: #ffffff;
+}
+
+a {
+	color: #ff0000;
+	text-decoration: None;
+}
+
+div {
+	margin: 20px;
+}
+
+table {
+	border-style: solid;
+	border-color: black;
+	border-collapse: collapse;
+}
+
+th {
+	padding: 5px;
+	color: #000000;
+	background-color: #259e3f;
+	border-style: solid;
+	border-color: black;
+	text-align: center;
+}
+
+td {
+	padding: 5px;
+	color: #ffffff;
+	background-color: #000000;
+	text-align: right;
+}
+
+.footer {
+	position: fixed;
+	bottom: 0px;
+	text-align: center;
+	width: 100%;
+}

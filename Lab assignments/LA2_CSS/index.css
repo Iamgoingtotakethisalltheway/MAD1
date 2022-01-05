@@ -1,0 +1,26 @@
+body {
+	background-color: #ffffff;
+}
+div {
+	margin: 20px;
+}
+
+h1 {
+	text-align: center;
+}
+
+a {
+	color: #ff0000;
+	text-decoration: None;
+}
+
+span {
+	color: #0000ff;
+}
+
+.footer {
+	position: fixed;
+	bottom: 0px;
+	text-align: center;
+	width: 100%;
+}
