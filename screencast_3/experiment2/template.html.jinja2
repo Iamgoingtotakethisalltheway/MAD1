@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jnanpith</title>
+</head>
+<body>
+    <h1>Awardees</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Year</th>
+                <th>Awardees</th>
+                <th>Language</th>
+            </tr>
+        </thead>
+        <tbody>
+        	{% for item in jnanpith_data %}
+            <tr>
+                <td>{{ item['Year'] }}</td>
+                <td>{{ item['Awardees'] }}</td>
+                <td>{{ item['Language'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
