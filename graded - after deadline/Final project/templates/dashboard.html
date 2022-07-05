@@ -1,0 +1,89 @@
+{% extends "layouts/dashboard_layout.html" %}
+
+{% block title %}
+Dashboard
+{% endblock title%}
+
+{% block content %}
+
+{% if tracker_list %}
+
+<div class="container px-5 py-5 h-100">
+    <div class="row justify-content-around">
+
+        {% for tracker in tracker_list %}
+
+        <div class="card bg-warning text-dark mt-4 mb-4" style="width: 20rem;">
+            <div class="card-body p-2 text-center">
+                <div class="mb-md-2 mt-md-4 pb-1">
+                    <!-- <h2 class="fw-bold text-warning"><em>Count-on-You!</em></h2> -->
+                    <h1 class="fw-bold text-danger mb-4"><em>{{ tracker.tracker_name }}</em></h1>
+                    <hr>
+                    <div>
+                        <!-- <p class="fw-bold text-decoration-underline">Last log</p> -->
+                        <p><strong>Last log: </strong>{{ tracker.last_log }}</p>
+                        <p><strong>Value: </strong>{{ tracker.last_value }}</p>
+                    </div>
+                    <hr>
+                    <!-- <a href="#" class="btn btn-success">See stats</a> -->
+
+                    <!-- dropdown -->
+                    <div class="dropdown">
+                        <a href="/logevent/{{ current_user.email }}/{{ tracker.tracker_name }}"
+                            class="btn btn-outline-dark border-2 fw-bold">Log
+                            now</a>
+                        <button class="btn btn-outline-success border-2 fw-bold dropdown-toggle" type="button"
+                            id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            more
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item"
+                                href="/trackerstats/{{ current_user.email }}/{{ tracker.tracker_name }}">View stats</a>
+                            <a class="dropdown-item"
+                                href="/update/tracker/{{ current_user.email }}/{{ tracker.tracker_name }}">Edit
+                                tracker</a>
+                            <a class="dropdown-item"
+                                href="/delete/tracker/{{ current_user.email }}/{{ tracker.tracker_name }}" onclick="
+                                return confirm('Deleting a tracker will permanently delete all the logs associated with this tracker. Are you sure you want to delete this tracker?');">Delete
+                                tracker</a>
+                        </div>
+                    </div>
+                    <!-- dropdown -->
+
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+
+    {% else %}
+    <div class="container">
+        <div class="row justify-content-center px-5 py-5">
+            <div class="col-12">
+                <h3 class="fw-bold text-danger">Oops..</h3>
+                <h5 class="text-info">You haven't added any tracker. Lets get started!</h3>
+                    <!-- <h3 class="fw-bold text-info">Start logging to view stats!</h3> -->
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+
+    <div class="container px-5 py-5 h-100">
+        <div class="row justify-content-around">
+            <!-- <div class="card bg-dark text-light mt-4 mb-4" style="width: 20rem;"> -->
+            <div class="card-body p-2 text-center">
+                <div class="mb-md-2 mt-md-4 pb-1">
+                    <h1 class="fw-bold text-danger">
+                        <a href="/select/trackertype/{{ current_user.email }}"
+                            class="btn btn-outline-warning btn-lg fw-bold fs-1 fst-italic">Add tracker</a>
+                    </h1>
+                </div>
+            </div>
+            <!-- </div> -->
+        </div>
+    </div>
+
+    {% endblock content %}

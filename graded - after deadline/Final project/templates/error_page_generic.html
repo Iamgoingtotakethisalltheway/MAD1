@@ -1,0 +1,17 @@
+{% extends "layouts/dashboard_layout.html" %}
+
+{% block title %}
+    Error Page
+{% endblock title %}
+
+{% block content %}
+
+<div class="container mt-5">
+<h3 class="fw-bold text-danger">The requested page was not found.</h3>
+<div class="text-info mt-5 mb-5">
+    <p>The following was returned by the API call:</p>
+    <p>{{ api_json_response }}</p>
+</div>
+<h3 class="fw-bold text-primary">To go back to home page, <a href="/" class="text-warning">click here.</a></h3>
+</div>
+{% endblock content %}

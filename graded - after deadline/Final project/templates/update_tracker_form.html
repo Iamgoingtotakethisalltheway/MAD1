@@ -1,0 +1,41 @@
+<!-- custom code -->
+{% extends "layouts/form_layout.html" %}
+
+{% block title %}
+Edit tracker page
+{% endblock title %}
+
+{% block content %}
+<!-- <h2 class="fw-bold mb-4 text-warning"><em>Count-on-You!</em></h2>
+<h2 class="fw-bold mb-2 text-light">Hello, {{ name }}!</h2> -->
+<h4 class="fw-bold fs-1 mb-4 text-uppercase text-warning">Edit tracker</h4>
+
+<form action="{{ url_for('update_tracker', user_email=user_email, tracker_name=tracker_name) }}" method="POST" ,
+    id="update-tracker-form">
+    <label for="tracker_name" class="form-label">Name <span style="color: red;">*</span></label>
+    <input type="text" name="tracker_name" pattern="[^0-9!@#$%^*()_+-=~`|\?>,.;:'\\ ]+"
+        title="Tracker name cannot contain numbers, spaces or special characters" value="{{ tracker.tracker_name }}"
+        required class="form-control form-control-lg mb-4" />
+
+    <label for="tracker_desc" class="form-label">Description <span style="color: red;">*</span></label>
+    <input type="text" name="tracker_desc" value="{{ tracker.tracker_desc }}" required
+        class="form-control form-control-lg mb-4" />
+
+    <!-- <div>
+            <label>Tracker Type</label>
+            <input type="radio" name="tracker_type" />
+        </div> -->
+
+    <!-- Not allowing changes in tracker settings -->
+
+    <!-- {% if tracker.tracker_type == "multiple choice" %}
+        <div>
+            <label>Settings</label>
+            <input type="text" name="tracker_settings" placeholder="{{ tracker.tracker_settings }}"/>
+        </div>
+        {% endif %} -->
+    <input type="submit" value="Update tracker" class="btn btn-lg btn-outline-warning mt-4">
+    <a href="{{ url_for('dashboard', user_email=user_email) }}" class="btn btn-lg btn-outline-danger mt-4">Cancel</a>
+</form>
+
+{% endblock content %}

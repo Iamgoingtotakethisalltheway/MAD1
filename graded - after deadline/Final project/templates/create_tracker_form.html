@@ -1,0 +1,34 @@
+<!-- custom code -->
+{% extends "layouts/form_layout.html" %}
+
+{% block title %}
+Create tracker page
+{% endblock title %}
+
+{% block content %}
+<!-- <h2 class="fw-bold mb-4 text-warning"><em>Count-on-You!</em></h2>
+<h2 class="fw-bold mb-2 text-light">Hello, {{ name }}!</h2> -->
+<h4 class="fw-bold fs-1 mb-4 text-uppercase text-warning">Create tracker</h4>
+
+<form action="{{ url_for('create_tracker', user_email=user_email, tracker_type=tracker_type) }}" method="POST"
+    id="create-tracker-form">
+    <label for="tracker_name" class="form-label">Tracker name<span style="color: red;">*</span></label>
+    <input type="text" name="tracker_name" pattern="[^0-9!@#$%^*()_+-=~`|\?>,.;:'\\ ]+"
+        title="Tracker name cannot contain numbers, spaces or special characters"
+        class="form-control form-control-lg mb-4" required />
+
+    <label for="tracker_desc" class="form-label">What do you want this tracker to do? <span
+            style="color: red;">*</span></label>
+    <input type="text" name="tracker_desc" class="form-control form-control-lg mb-4" required />
+
+    {% if tracker_type == "multiple choice" %}
+    <label for="tracker_settings" class="form-label">Settings</label>
+    <input type="text" name="tracker_settings" pattern="^[^\s,]+(,[^\s,]+)+$"
+        title="Enter two or more values separated by comma (no spaces)." placeholder="Enter comma separated values"
+        class="form-control form-control-lg mb-4" required />
+    {% endif %}
+
+    <input type="submit" value="Create" class="btn btn-lg btn-outline-warning mt-4">
+    <a href="{{ url_for('dashboard', user_email=user_email) }}" class="btn btn-lg btn-outline-danger mt-4">Cancel</a>
+</form>
+{% endblock content %}

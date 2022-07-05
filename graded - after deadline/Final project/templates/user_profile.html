@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        table, th, td {
+            border: 1px solid black; 
+            border-collapse: collapse;
+            text-align: left
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome {{ username }}!</h1>
+    <h2>This is your profile page</h2>
+    <table>
+        <tr>
+            <th>key</th>
+            <th>value</th>
+        </tr>
+        <tr>
+            <td>ID</td>
+            <td>{{ profile["user_id"] }}</td>
+        </tr>
+        <tr>
+            <td>Username</td>
+            <td>{{ profile["username"] }}</td>
+        </tr>
+        <tr>
+            <td>email</td>
+            <td>{{ profile["email"] }}</td>
+        </tr>
+    </table>
+
+    <div>
+        {% include "sidebar.html" %}
+    </div>
+    
+</body>
+</html>

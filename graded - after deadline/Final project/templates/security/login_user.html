@@ -1,0 +1,27 @@
+<!-- custom code -->
+{% extends "layouts/form_layout.html" %}
+
+{% from "security/_macros.html" import render_field_with_errors, render_field %}
+{% include "security/_messages.html" %}
+
+<!-- custom code -->
+{% block title %}
+Login page
+{% endblock title %}
+
+{% block content %}
+
+<h2 class="fw-bold mb-4 text-warning"><em>Count-on-You!</em></h2>
+<h2 class="fw-bold mb-2 text-uppercase text-danger">{{ _('Login') }}</h2>
+<form action="{{ url_for_security('login') }}" method="POST" name="login_user_form">
+  {{ login_user_form.hidden_tag() }}
+  {{ render_field_with_errors(login_user_form.email, class="form-control form-control-lg mb-4") }}
+  {{ render_field_with_errors(login_user_form.password, class="form-control form-control-lg mb-4") }}
+  {{ render_field_with_errors(login_user_form.remember) }}
+  {{ render_field(login_user_form.next) }}
+  {{ render_field(login_user_form.submit, class="btn btn-lg btn-warning") }}
+</form>
+{% include "security/_menu.html" %}
+
+<!-- custom code -->
+{% endblock content %}

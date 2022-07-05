@@ -1,0 +1,52 @@
+<!-- custom code -->
+{% extends "layouts/form_layout.html" %}
+
+{% block title %}
+Update log page
+{% endblock title %}
+
+{% block content %}
+<!-- <h2 class="fw-bold mb-4 text-warning"><em>Count-on-You!</em></h2>
+<h2 class="fw-bold mb-2 text-light">Hello, {{ name }}!</h2> -->
+<h4 class="fw-bold fs-1 mb-4 text-uppercase text-warning">Edit log</h4>
+
+<form action="{{ url_for('update_log', user_email=current_user.email, log_id=log.log_id, tracker_name=tracker_name) }}" method="POST",
+    id="log-event-form">
+    <label for="timestamp" class="form-label">Date n time <span style="color: red;">*</span></label>
+    <input type="datetime" pattern="[0-3][0-9]-[0-1][0-9]-[0-9]{4} [0-9]{2}:[0-9]{2}" title="Please enter in 'dd-mm-yyyy hh:mm' format only" name="timestamp" value="{{ dt }}"
+        required class="form-control form-control-lg mb-4" />
+
+    <!-- <p>Need to add validation for "value" field using tracker type. See create_log_form.html</p> -->
+
+    <label for="value" class="form-label">Value <span style="color: red;">*</span></label>
+
+    {% if tracker.tracker_type == 'numerical' %}
+    <input type="text" pattern="^[0-9]+(\.[0-9]*)*" title="Please enter a number" name="value" value="{{ log.value }}" class="form-control form-control-lg mb-4" required/>
+
+    {% elif tracker.tracker_type == 'time duration' %}
+    <input type="text" pattern="^[0-9]+(\.[0-9]*)*" title="Please enter a number" name="value" value="{{ log.value }}" class="form-control form-control-lg mb-4" required/>
+
+    {% elif tracker.tracker_type == 'boolean' %}
+    <input type="text" pattern="yes|no" name="value" title="Please enter yes or no only" value="{{ log.value }}" class="form-control form-control-lg mb-4" required/>
+
+    {% elif tracker.tracker_type == 'multiple choice' %}
+
+    <div class="bg-dark text-warning rounded px-5 py-2 mb-4">
+        {% for choice in choices %}
+        <div class="form-check">
+            <input type="radio" id={{ choice }} name="value" value={{ choice }} class="form-check-input" required>
+            <label for={{ choice }} class="form-check-label mb-2">{{ choice }}</label>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% endif %}
+
+    <label for="note" class="form-label">Notes</label>
+    <input type="text" name="note" value="{{ log.note }}" class="form-control form-control-lg mb-4" />
+
+    <input type="submit" value="Update log" class="btn btn-outline-warning btn-lg mt-4">
+    <a href="{{ url_for('tracker_stats', user_email=user_email, tracker_name=tracker_name) }}" class="btn btn-lg btn-outline-danger mt-4">Cancel</a>
+</form>
+
+{% endblock content %}

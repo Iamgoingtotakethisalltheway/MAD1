@@ -1,0 +1,13 @@
+# Detailed demo of the app
+
+# Questions
+
+> During demo he asked me about the warning messages showed while deleting tracker/log. He asked me how I implemented it. (I told about my javascript usage - which was very minimal)
+> He asked me about the responsive design used in my app. How it works? (I told about bootstrap containers, grid system, css media queries it uses etc)
+> Model used - Explain the code. Show code and also the data in sqlite db.
+> Password hashing - Have you done? What hashing method have you used?
+> HTTP vs HTTPS - What are they and what is the difference?
+> Template inheritance - Have you used it and how? Show it in code.
+> Objective question on server bandwidth and max requests it can handle per second (similar to GA question - Flask app generaties 500 pages/sec and a 250 KB image has to be downloaded. 64 GB ram, 1 Gbps connection)
+
+Total duration of viva - 26 mins.
